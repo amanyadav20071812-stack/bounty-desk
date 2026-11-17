@@ -1,0 +1,238 @@
+{
+  "reports": [
+    {
+      "id": "BD-0031",
+      "researcherId": "r_arjun",
+      "title": "Order details exposed by changing order ID",
+      "asset": "api.shopnest.test",
+      "vulnType": "Broken access control (IDOR)",
+      "suggestedSeverity": "High",
+      "finalSeverity": "High",
+      "steps": "Reproduce using the fictional ShopNest test account and document the affected screen and response.",
+      "impact": "A user could access or change information outside their own account.",
+      "status": "Fixed",
+      "duplicateOf": null,
+      "createdAt": "2026-11-17T18:04:22.262639",
+      "timeline": [
+        {
+          "at": "2026-11-17T18:04:22.262639+00:00",
+          "by": "researcher",
+          "from": null,
+          "to": "New",
+          "comment": "Report submitted."
+        },
+        {
+          "at": "2026-11-17T18:04:22.262639+00:00",
+          "by": "lead",
+          "from": "New",
+          "to": "Accepted",
+          "comment": "Confirmed, fix in progress"
+        },
+        {
+          "at": "2026-11-17T18:04:22.262639+00:00",
+          "by": "lead",
+          "from": "Accepted",
+          "to": "Fixed",
+          "comment": "Fix deployed"
+        }
+      ]
+    },
+    {
+      "id": "BD-0024",
+      "researcherId": "r_meera",
+      "title": "Reflected XSS in the storefront search",
+      "asset": "shop.shopnest.test",
+      "vulnType": "Cross-Site Scripting (XSS)",
+      "suggestedSeverity": "Medium",
+      "finalSeverity": "Medium",
+      "steps": "Reproduce using the fictional ShopNest test account and document the affected screen and response.",
+      "impact": "A user could access or change information outside their own account.",
+      "status": "Accepted",
+      "duplicateOf": null,
+      "createdAt": "2026-11-17T18:04:22.262639",
+      "timeline": [
+        {
+          "at": "2026-11-17T18:04:22.262639+00:00",
+          "by": "researcher",
+          "from": null,
+          "to": "New",
+          "comment": "Report submitted."
+        },
+        {
+          "at": "2026-11-17T18:04:22.262639+00:00",
+          "by": "lead",
+          "from": "New",
+          "to": "Accepted",
+          "comment": "Reproduced safely in the demo"
+        }
+      ]
+    },
+    {
+      "id": "BD-0025",
+      "researcherId": "r_kabir",
+      "title": "Search result reflects untrusted text",
+      "asset": "shop.shopnest.test",
+      "vulnType": "Cross-Site Scripting (XSS)",
+      "suggestedSeverity": "High",
+      "finalSeverity": null,
+      "steps": "Reproduce using the fictional ShopNest test account and document the affected screen and response.",
+      "impact": "A user could access or change information outside their own account.",
+      "status": "New",
+      "duplicateOf": null,
+      "createdAt": "2026-11-17T18:04:22.262639",
+      "timeline": [
+        {
+          "at": "2026-11-17T18:04:22.262639+00:00",
+          "by": "researcher",
+          "from": null,
+          "to": "New",
+          "comment": "Report submitted."
+        }
+      ]
+    },
+    {
+      "id": "BD-0026",
+      "researcherId": "r_zoya",
+      "title": "Checkout total can be changed",
+      "asset": "shop.shopnest.test",
+      "vulnType": "Business Logic Flaw",
+      "suggestedSeverity": "Critical",
+      "finalSeverity": null,
+      "steps": "Reproduce using the fictional ShopNest test account and document the affected screen and response.",
+      "impact": "A user could access or change information outside their own account.",
+      "status": "New",
+      "duplicateOf": null,
+      "createdAt": "2026-11-17T18:04:22.262639",
+      "timeline": [
+        {
+          "at": "2026-11-17T18:04:22.262639+00:00",
+          "by": "researcher",
+          "from": null,
+          "to": "New",
+          "comment": "Report submitted."
+        }
+      ]
+    },
+    {
+      "id": "BD-0027",
+      "researcherId": "r_arjun",
+      "title": "Private profile fields visible across accounts",
+      "asset": "api.shopnest.test",
+      "vulnType": "Broken access control (IDOR)",
+      "suggestedSeverity": "High",
+      "finalSeverity": null,
+      "steps": "Reproduce using the fictional ShopNest test account and document the affected screen and response.",
+      "impact": "A user could access or change information outside their own account.",
+      "status": "Triaged",
+      "duplicateOf": null,
+      "createdAt": "2026-11-17T18:04:22.262639",
+      "timeline": [
+        {
+          "at": "2026-11-17T18:04:22.262639+00:00",
+          "by": "researcher",
+          "from": null,
+          "to": "New",
+          "comment": "Report submitted."
+        },
+        {
+          "at": "2026-11-17T18:04:22.262639+00:00",
+          "by": "lead",
+          "from": "New",
+          "to": "Triaged",
+          "comment": "Initial review started"
+        }
+      ]
+    },
+    {
+      "id": "BD-0028",
+      "researcherId": "r_meera",
+      "title": "Session token remains valid after logout",
+      "asset": "mobile web",
+      "vulnType": "Authentication Bypass",
+      "suggestedSeverity": "Medium",
+      "finalSeverity": "Medium",
+      "steps": "Reproduce using the fictional ShopNest test account and document the affected screen and response.",
+      "impact": "A user could access or change information outside their own account.",
+      "status": "Accepted",
+      "duplicateOf": null,
+      "createdAt": "2026-11-17T18:04:22.262639",
+      "timeline": [
+        {
+          "at": "2026-11-17T18:04:22.262639+00:00",
+          "by": "researcher",
+          "from": null,
+          "to": "New",
+          "comment": "Report submitted."
+        },
+        {
+          "at": "2026-11-17T18:04:22.262639+00:00",
+          "by": "lead",
+          "from": "New",
+          "to": "Accepted",
+          "comment": "Confirmed on the test storefront"
+        }
+      ]
+    },
+    {
+      "id": "BD-0029",
+      "researcherId": "r_kabir",
+      "title": "Outdated response reveals server details",
+      "asset": "api.shopnest.test",
+      "vulnType": "Information Disclosure",
+      "suggestedSeverity": "Low",
+      "finalSeverity": "Low",
+      "steps": "Reproduce using the fictional ShopNest test account and document the affected screen and response.",
+      "impact": "A user could access or change information outside their own account.",
+      "status": "Fixed",
+      "duplicateOf": null,
+      "createdAt": "2026-11-17T18:04:22.262639",
+      "timeline": [
+        {
+          "at": "2026-11-17T18:04:22.262639+00:00",
+          "by": "researcher",
+          "from": null,
+          "to": "New",
+          "comment": "Report submitted."
+        },
+        {
+          "at": "2026-11-17T18:04:22.262639+00:00",
+          "by": "lead",
+          "from": "New",
+          "to": "Accepted",
+          "comment": "Patch approved"
+        },
+        {
+          "at": "2026-11-17T18:04:22.262639+00:00",
+          "by": "lead",
+          "from": "Accepted",
+          "to": "Fixed",
+          "comment": "Fix verified"
+        }
+      ]
+    }
+  ],
+  "payouts": [
+    {
+      "id": "PAY-0031",
+      "reportId": "BD-0031",
+      "researcherId": "r_arjun",
+      "severity": "High",
+      "amount": 50000,
+      "status": "Approved",
+      "reason": "Default High reward",
+      "reference": null,
+      "createdAt": "2026-11-17T18:04:22.262639"
+    },
+    {
+      "id": "PAY-0029",
+      "reportId": "BD-0029",
+      "researcherId": "r_kabir",
+      "severity": "Low",
+      "amount": 5000,
+      "status": "To approve",
+      "reason": "Default Low reward",
+      "reference": null,
+      "createdAt": "2026-11-17T18:04:22.262639"
+    }
+  ]
+}
