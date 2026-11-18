@@ -92,7 +92,7 @@ There are no file uploads, exploit execution, or real transfers. Report text is 
 - Add Alembic migrations before changing the PostgreSQL schema beyond the starter `create_all` setup.
 - Add persistent rate limits, backups, logging, security review, and automated coverage before handling sensitive reports.
 - Add Power BI measures using separate totals for approved and actually paid rewards.
-- Add pytest, Vitest, and Playwright coverage when the first workflow slice is stable.
+- Add pytest, Vitest, and Playwright coverw.
 
 No database password, token, or other secret belongs in source control.
 
