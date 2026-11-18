@@ -1,99 +1,324 @@
-# BountyDesk
+# 🛡️ BountyDesk
+### Vulnerability Disclosure & Reward Management Platform
 
-A small ShopNest vulnerability disclosure and payout demo. The interface follows the dark security dashboard references, while report review and payout workflows stay aligned with the BountyDesk PRD.
+**BountyDesk** is a vulnerability disclosure and bounty management platform designed to streamline the process of receiving, reviewing, validating, and rewarding security vulnerability reports.
 
-## Stack
+Built around a modern security dashboard, BountyDesk provides a centralized workspace for security researchers and security teams to collaborate, manage vulnerability reports, track their progress, and oversee reward approvals.
 
-- React, TypeScript, Vite, Tailwind CSS, and Recharts
-- Python, FastAPI, Pydantic, SQLAlchemy, and PostgreSQL
-- Power BI can connect directly to PostgreSQL for reporting
+The project currently implements a functional demonstration using fictional vulnerability reports and simulated payments.
 
-The first working slice includes report submission, a triage queue, status history, reward approval, paid references, filters, and CSV export. It uses fictional reports and records simulated payments only.
+---
 
-## Quick Start (Zero Config)
+## 🚀 Key Features
 
-Double-click `run.bat` or run:
+### 1. Vulnerability Report Submission
+- Submit vulnerability reports through a structured interface.
+- Provide report details, affected targets, severity, and supporting information.
+- Validate report information before submission.
 
-```bat
+### 2. Security Triage Dashboard
+- Centralized vulnerability report management.
+- Review and classify incoming submissions.
+- Filter reports based on status and other available attributes.
+- Track report progress throughout the review lifecycle.
+
+### 3. Report Lifecycle Management
+- Manage vulnerability report statuses.
+- Maintain status history for transparency.
+- Track report progression from submission to resolution.
+
+### 4. Reward & Payout Management
+- Approve rewards for validated vulnerabilities.
+- Support predefined reward tiers and justified custom amounts.
+- Maintain payment references.
+- Distinguish between approved rewards and simulated completed payments.
+
+### 5. Analytics & Reporting
+- Dashboard charts powered by Recharts.
+- Report filtering and CSV export.
+- PostgreSQL compatibility for external analytics.
+- Power BI integration for additional reporting and visualization.
+
+---
+
+## 👥 User Roles
+
+BountyDesk provides two distinct user experiences:
+
+| Role | Responsibilities |
+|---|---|
+| **Security Researcher** | Submit vulnerability reports and track their progress. |
+| **Security Lead** | Review submissions, manage triage, approve rewards, and track payouts. |
+
+---
+
+## 🧰 Technology Stack
+
+### Frontend
+- **React** – Component-based user interface.
+- **TypeScript** – Type safety and maintainable code.
+- **Vite** – Frontend development and build tooling.
+- **Tailwind CSS** – Responsive dashboard styling.
+- **Recharts** – Data visualization and analytics.
+
+### Backend
+- **Python** – Backend application logic.
+- **FastAPI** – REST API development.
+- **Pydantic** – Request validation and data schemas.
+- **SQLAlchemy** – Database operations and ORM.
+
+### Database & Analytics
+- **SQLite** – Default local development database.
+- **PostgreSQL** – Optional database configuration.
+- **Power BI** – External business intelligence and reporting.
+
+---
+
+## 🏗️ Project Structure
+
+```text
+BountyDesk/
+│
+├── backend/
+│   ├── main.py
+│   └── requirements.txt
+│
+├── src/
+│   ├── App.tsx
+│   ├── domain.ts
+│   ├── styles.css
+│   ├── main.tsx
+│   └── Charts.tsx
+│
+├── index.html
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+├── run.bat
+└── README.md
+```
+
+---
+
+## ⚙️ Installation & Setup
+
+### Prerequisites
+
+Install the following before running the application:
+
+- Node.js (v18 or later)
+- Python (3.11 or later)
+- Git
+
+### Option 1: Quick Start (Windows)
+
+The project includes an automated launcher.
+
+Simply double-click `run.bat` or execute:
+
+```bash
 .\run.bat
 ```
 
-This automatically:
-1. Sets up the Python virtual environment and installs dependencies.
-2. Installs frontend packages if needed.
-3. Launches the FastAPI backend (`http://127.0.0.1:8000`) with a local SQLite database (`bountydesk.db`).
-4. Launches the Vite frontend (`http://127.0.0.1:5173`) and opens your browser.
+The launcher automatically:
 
-### Demo Credentials
+1. Creates and configures the Python virtual environment.
+2. Installs the required backend dependencies.
+3. Installs frontend dependencies when necessary.
+4. Starts the FastAPI backend.
+5. Starts the Vite frontend.
+6. Opens the application in your browser.
 
-- **Researcher**: Account: `researcher` / Password: `researcher-demo-pass-1234`
-- **Security Lead**: Account: `lead` / Password: `lead-demo-pass-1234`
+### Option 2: Manual Setup (macOS / Linux)
 
-(Quick-fill buttons are also available directly on the sign-in screen).
+**Step 1: Clone the repository**
 
-## Manual Setup
+```bash
+git clone https://github.com/amanyadav20071812-stack/bounty-desk.git
 
-1. Install Node.js (v18+) and Python (3.11+).
-2. Install frontend dependencies and start Vite:
+cd bounty-desk
+```
 
-   ```cmd
-   npm install
-   npm run dev
-   ```
+**Step 2: Install frontend dependencies**
 
-3. In a second terminal, set up and start the API:
+```bash
+npm install
+```
 
-   ```cmd
-   py -m venv .venv
-   .\.venv\Scripts\activate
-   pip install -r backend\requirements.txt
-   uvicorn backend.main:app --reload
-   ```
+**Step 3: Start the frontend**
 
-4. Open `http://localhost:5173`. FastAPI interactive docs are at `http://localhost:8000/docs`.
+```bash
+npm run dev
+```
 
-### Using PostgreSQL (Optional)
+**Step 4: Configure the backend**
 
-SQLite is used by default for zero-friction setup. If you want to connect PostgreSQL (e.g. for Power BI reporting):
-1. Create a local user and database:
-   ```sql
-   CREATE USER bountydesk WITH PASSWORD 'choose-a-local-password';
-   CREATE DATABASE bountydesk OWNER bountydesk;
-   ```
-2. In `.env`, update `DATABASE_URL`:
-   ```env
-   DATABASE_URL=postgresql+psycopg://bountydesk:choose-a-local-password@localhost:5432/bountydesk
-   ```
+Open a second terminal inside the project directory.
 
-## Learn the project
+Create a Python virtual environment:
 
-There are seven main files to understand:
+```bash
+python3 -m venv .venv
+```
 
-1. `src/App.tsx` — screens, forms, charts, and user actions.
-2. `src/domain.ts` — shared data types, reward tiers, formatting, and workflow helpers.
-3. `src/styles.css` — Tailwind import plus the small set of dashboard styles.
-4. `src/main.tsx` — React entry point.
-5. `src/Charts.tsx` — Recharts visuals, loaded as a separate bundle.
-6. `backend/main.py` — API routes, validation, database models, seed data, and workflow.
-7. `backend/requirements.txt` — Python packages.
+Activate it:
 
-`index.html`, `package.json`, `tsconfig.json`, and `vite.config.ts` are normal tool setup files.
+```bash
+source .venv/bin/activate
+```
 
-## Sign-in and security boundary
+Install backend dependencies:
 
-The API checks separate researcher and lead passwords from `.env`, issues an expiring HttpOnly session cookie, rate-limits repeated failed sign-ins, and checks the signed-in role on each request. Write requests must come from an allowed frontend origin. The launcher and API bind to localhost by default. For an HTTPS deployment, set `APP_ENV=production`, `COOKIE_SECURE=true`, and `FRONTEND_ORIGINS` to the exact HTTPS site origin. Never expose this app over plain HTTP on Wi-Fi or the public internet.
+```bash
+pip install -r backend/requirements.txt
+```
 
-There are no file uploads, exploit execution, or real transfers. Report text is rendered as React text. The API validates scope, report fields, state transitions, reward limits, custom amount reasons, duplicate targets, and payment references.
+**Step 5: Start the backend**
 
-## Production work still needed
+```bash
+uvicorn backend.main:app --reload
+```
 
-- Replace the demo's two environment-password accounts with managed users, password reset, and organization-level authorization.
-- Add session revocation, HTTPS hosting, managed secrets, and production database/network restrictions.
-- Add Alembic migrations before changing the PostgreSQL schema beyond the starter `create_all` setup.
-- Add persistent rate limits, backups, logging, security review, and automated coverage before handling sensitive reports.
-- Add Power BI measures using separate totals for approved and actually paid rewards.
-- Add pytest, Vitest, and Playwright coverw.
+---
 
-No database password, token, or other secret belongs in source control.
+## 🌐 Application Access
 
-To connect Power BI Desktop, choose **Get Data → PostgreSQL database**, enter `localhost:5432` and database `bountydesk`, then use the local database credentials. Build separate measures for approved and paid payouts so approved amounts are not counted as money already sent.
+Once both services are running, access the application using the following URLs:
+
+| Service | URL |
+|---|---|
+| BountyDesk Frontend | http://localhost:5173 |
+| FastAPI Backend | http://127.0.0.1:8000 |
+| API Documentation | http://127.0.0.1:8000/docs |
+
+---
+
+## 🔐 Demo Credentials
+
+Use the following credentials to explore the application's two user roles.
+
+| Role | Username | Password |
+|---|---|---|
+| Researcher | `researcher` | `researcher-demo-pass-1234` |
+| Security Lead | `lead` | `lead-demo-pass-1234` |
+
+Quick-fill options are also available on the sign-in screen.
+
+*These are demonstration credentials, not production accounts.*
+
+---
+
+## 🔒 Security Architecture
+
+Security is an important consideration in BountyDesk.
+
+The current implementation includes:
+
+- Role-based authorization for researchers and security leads.
+- Environment-based account credentials.
+- Expiring HttpOnly session cookies.
+- Rate limiting for repeated failed sign-in attempts.
+- Frontend-origin validation for write requests.
+- Server-side validation of report submissions and workflow transitions.
+- Reward limits and custom reward justification.
+- Duplicate target validation.
+
+The application binds to localhost by default.
+
+**Security limitations:** This is a demonstration application, not a production-ready vulnerability disclosure service. It does not execute exploits, accept file uploads, or perform real financial transactions.
+
+Never expose the development application over plain HTTP on a public network.
+
+---
+
+## 📊 Database & Power BI Integration
+
+BountyDesk uses SQLite by default, allowing developers to run the application without configuring an external database.
+
+PostgreSQL can optionally be configured for more advanced reporting and database integration.
+
+### PostgreSQL Configuration
+
+Create a local database and user:
+
+```sql
+CREATE USER bountydesk WITH PASSWORD 'your-local-password';
+
+CREATE DATABASE bountydesk OWNER bountydesk;
+```
+
+Configure the database connection in `.env`:
+
+```env
+DATABASE_URL=postgresql+psycopg://bountydesk:your-local-password@localhost:5432/bountydesk
+```
+
+### Power BI Integration
+
+Power BI Desktop can connect to the PostgreSQL database through:
+
+**Get Data → PostgreSQL Database**
+
+Connection details:
+
+- Server: `localhost:5432`
+- Database: `bountydesk`
+
+Separate reporting measures should be maintained for approved rewards and actually paid rewards to avoid treating approvals as completed payments.
+
+---
+
+## 📁 Important Files to Understand
+
+| File | Purpose |
+|---|---|
+| `src/App.tsx` | Main dashboard, screens, forms, and user interactions. |
+| `src/domain.ts` | Shared types, reward tiers, and workflow helpers. |
+| `src/styles.css` | Global styling and Tailwind integration. |
+| `src/main.tsx` | React application entry point. |
+| `src/Charts.tsx` | Dashboard charts and visualizations. |
+| `backend/main.py` | API endpoints, validation, database models, and workflow logic. |
+| `backend/requirements.txt` | Python backend dependencies. |
+
+---
+
+## 🛠️ Future Improvements
+
+Potential improvements for future development include:
+
+- Managed user accounts and password recovery.
+- Organization-level authorization and permissions.
+- Advanced vulnerability classification and severity scoring.
+- Session revocation and persistent rate limiting.
+- Production-grade database migrations using Alembic.
+- Automated testing using Pytest, Vitest, and Playwright.
+- Improved analytics and Power BI dashboards.
+- Production deployment with HTTPS, managed secrets, backups, and monitoring.
+- Comprehensive security audits and logging.
+
+---
+
+## ⚠️ Project Limitations
+
+BountyDesk is currently a functional prototype intended for demonstration and development purposes.
+
+- Uses fictional vulnerability reports and sample records.
+- Payments are simulated; no real money is transferred.
+- SQLite is the default database.
+- Production-grade identity management and deployment infrastructure are not yet implemented.
+
+Do not use the current version to process real vulnerability disclosures or sensitive security reports.
+
+---
+
+## 🎯 Project Objective
+
+The objective of BountyDesk is to demonstrate how modern web technologies can be combined to build a centralized vulnerability disclosure and reward management workflow.
+
+By connecting researchers, security teams, reporting tools, and reward management in one interface, the project explores a more organized and transparent approach to vulnerability management.
+
+---
+
+**Built with React, TypeScript, Python, FastAPI, and SQLAlchemy.**
+
+*BountyDesk — Discover. Report. Secure. Reward.*
