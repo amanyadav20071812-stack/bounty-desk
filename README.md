@@ -183,7 +183,15 @@ uvicorn backend.main:app --reload
 
 ## 🌐 Application Access
 
-Once both services are running, access the application using the following URLs:
+### Deployed application
+
+Use the live BountyDesk deployment here:
+
+[Open BountyDesk](https://bountydesk-deploy.vercel.app/)
+
+### Local development
+
+When running the project locally, use the following URLs:
 
 | Service | URL |
 |---|---|
